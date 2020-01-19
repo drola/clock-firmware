@@ -1,8 +1,10 @@
 #include "serial.h"
 
-bool Serial::canTx() { return this->txBuffer.canRead(); }
+bool Serial::hasAnythingToTx() { return this->txBuffer.canRead(); }
 
 char Serial::tx() { return this->txBuffer.read(); }
+
+void Serial::rx(char chr) { this->rxBuffer.write(chr); }
 
 void Serial::print(char c) { this->txBuffer.write(c); }
 
@@ -18,3 +20,7 @@ void Serial::println(const char *str) {
   this->print(str);
   this->print('\n');
 }
+
+char Serial::read() { return this->rxBuffer.read(); }
+
+bool Serial::hasAnythingToRead() { return this->rxBuffer.canRead(); }

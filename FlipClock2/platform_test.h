@@ -13,3 +13,6 @@
   for (; 0;) {                                                                 \
   }
 
+class SerialMock {
+  
+}
