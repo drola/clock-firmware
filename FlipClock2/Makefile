@@ -56,5 +56,7 @@ clean:
 chip_backup:
 	${AVRDUDE} -U flash:r:backup.hex:i
 
+chip_upload:
+	${AVRDUDE} -U flash:w:avr.hex:i
 
-.PHONY: test clean chip_backup
+.PHONY: test clean chip_backup chip_upload
